@@ -62,16 +62,23 @@
     }
 
     .left-panel {
-      padding: 42px 44px;
+      padding: 32px 44px 30px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
     .right-panel {
-      padding: 34px 32px 28px;
+      padding: 28px 32px 26px;
       display: flex;
       flex-direction: column;
+    }
+
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
     }
 
     .eyebrow {
@@ -83,7 +90,6 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #cbd5e1;
-      margin-bottom: 24px;
     }
 
     .status-dot {
@@ -109,6 +115,30 @@
       0%   { transform: scale(1); opacity: 0.65; }
       70%  { transform: scale(2.7); opacity: 0; }
       100% { transform: scale(1); opacity: 0; }
+    }
+
+    .lang-toggle {
+      display: flex;
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+      padding: 4px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .lang-toggle button {
+      border: none;
+      background: transparent;
+      color: #dbeafe;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .lang-toggle button.active {
+      background: #2563eb;
+      color: #ffffff;
     }
 
     h1 {
@@ -147,7 +177,6 @@
       background: linear-gradient(135deg, rgba(37, 99, 235, 0.88), rgba(30, 58, 95, 0.96));
       border-radius: 24px;
       padding: 24px 26px;
-      margin-top: 0;
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
     }
 
@@ -269,97 +298,236 @@
       line-height: 1.42;
       color: #e5e7eb;
     }
+
+    [data-lang] {
+      display: none;
+      height: 100%;
+    }
+
+    .show {
+      display: contents;
+    }
   </style>
 </head>
 <body>
   <div class="screen">
     <div class="overlay">
-      <div class="left-panel">
-        <div>
-          <div class="eyebrow">
-            <span class="status-dot"></span>
-            <span>Current Construction Update</span>
-          </div>
 
-          <h1>New Church<br>Construction</h1>
+      <!-- ENGLISH -->
+      <div id="en" class="show" data-lang>
+        <div class="left-panel">
+          <div>
+            <div class="top-row">
+              <div class="eyebrow">
+                <span class="status-dot"></span>
+                <span>Current Construction Update</span>
+              </div>
 
-          <div class="subtitle">
-            We are grateful to continue moving forward and to share the latest milestone in the progress of our new church building.
-          </div>
+              <div class="lang-toggle">
+                <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+                <button id="btn-ru" onclick="setLang('ru')">RU</button>
+              </div>
+            </div>
 
-          <div class="feature-image-wrap">
-            <img class="feature-image" src="https://storage1.snappages.site/5Q4K7K/assets/images/23916394_4032x3024_2500.JPG" alt="Church construction site">
-          </div>
+            <h1>New Church<br>Construction</h1>
 
-          <div class="current-stage">
-            <div class="current-stage-label">Current Stage</div>
-            <div class="current-stage-text">
-              Plumbing and electrical inspections have passed, and preparation for the slab and footers is now underway.
+            <div class="subtitle">
+              We are grateful to continue moving forward and to share the latest milestone in the progress of our new church building.
+            </div>
+
+            <div class="feature-image-wrap">
+              <img class="feature-image" src="https://storage1.snappages.site/5Q4K7K/assets/images/23916394_4032x3024_2500.JPG" alt="Church construction site">
+            </div>
+
+            <div class="current-stage">
+              <div class="current-stage-label">Current Stage</div>
+              <div class="current-stage-text">
+                Plumbing and electrical inspections have passed, and preparation for the slab and footers is now underway.
+              </div>
+            </div>
+
+            <div class="progress-card">
+              <div class="progress-header">
+                <span>Overall Progress</span>
+                <span>40% Complete</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
             </div>
           </div>
 
-          <div class="progress-card">
-            <div class="progress-header">
-              <span>Overall Progress</span>
-              <span>40% Complete</span>
-            </div>
-            <div class="progress-bar">
-              <div class="progress-fill"></div>
-            </div>
+          <div class="footer-note">
+            Home of Gospel Church
           </div>
         </div>
 
-        <div class="footer-note">
-          Home of Gospel Church
+        <div class="right-panel">
+          <div class="timeline-title">Project Timeline</div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">Mid-May 2026</div>
+              <div class="timeline-content">
+                Following the curing period, block work will begin, and the steel structure is expected to arrive in mid-May, launching the next major phase of construction.
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">Late April to Early May 2026</div>
+              <div class="timeline-content">
+                Once the foundation is poured, it will require approximately 21–28 days to properly cure. During this time, visible progress will pause briefly to ensure the strength and integrity of the structure.
+              </div>
+            </div>
+
+            <div class="timeline-item current">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">April 2026</div>
+              <div class="timeline-content">
+                Plumbing and electrical inspections have successfully passed, marking an important milestone in the construction process. Preparation for the slab and footers is now underway as crews continue to move forward on-site.
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">February 2026</div>
+              <div class="timeline-content">
+                Project funding was fully approved, securing the resources needed to begin construction. All required building permits were officially approved, allowing the project to move forward into the next phase.
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">February 23, 2025</div>
+              <div class="timeline-content">
+                A groundbreaking ceremony and prayer service were held, marking the official beginning of this new journey.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="right-panel">
-        <div class="timeline-title">Project Timeline</div>
+      <!-- RUSSIAN -->
+      <div id="ru" data-lang>
+        <div class="left-panel">
+          <div>
+            <div class="top-row">
+              <div class="eyebrow">
+                <span class="status-dot"></span>
+                <span>Текущее обновление строительства</span>
+              </div>
 
-        <div class="timeline">
-          <div class="timeline-item current">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">April 2026</div>
-            <div class="timeline-content">
-              Plumbing and electrical inspections have successfully passed, marking an important milestone in the construction process. Preparation for the slab and footers is now underway as crews continue to move forward on-site.
+              <div class="lang-toggle">
+                <button id="btn-en-ru" onclick="setLang('en')">EN</button>
+                <button id="btn-ru-ru" class="active" onclick="setLang('ru')">RU</button>
+              </div>
+            </div>
+
+            <h1>Строительство<br>новой церкви</h1>
+
+            <div class="subtitle">
+              Мы благодарны Богу за продолжающееся движение вперед и рады делиться последними этапами строительства нового церковного здания.
+            </div>
+
+            <div class="feature-image-wrap">
+              <img class="feature-image" src="https://storage1.snappages.site/5Q4K7K/assets/images/23916394_4032x3024_2500.JPG" alt="Строительная площадка церкви">
+            </div>
+
+            <div class="current-stage">
+              <div class="current-stage-label">Текущий этап</div>
+              <div class="current-stage-text">
+                Инспекции по сантехнике и электрике пройдены, и сейчас ведется подготовка к плите и фундаментам.
+              </div>
+            </div>
+
+            <div class="progress-card">
+              <div class="progress-header">
+                <span>Общий прогресс</span>
+                <span>40% завершено</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
             </div>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">Late April to Early May 2026</div>
-            <div class="timeline-content">
-              Once the foundation is poured, it will require approximately 21–28 days to properly cure. During this time, visible progress will pause briefly to ensure the strength and integrity of the structure.
-            </div>
+          <div class="footer-note">
+            Home of Gospel Church
           </div>
+        </div>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">Mid-May 2026</div>
-            <div class="timeline-content">
-              Following the curing period, block work will begin, and the steel structure is expected to arrive in mid-May, launching the next major phase of construction.
+        <div class="right-panel">
+          <div class="timeline-title">Хронология проекта</div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">Середина мая 2026</div>
+              <div class="timeline-content">
+                После завершения периода набора прочности начнется кладка блоков, а в середине мая ожидается поставка металлического каркаса, что откроет следующий важный этап строительства.
+              </div>
             </div>
-          </div>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">February 2026</div>
-            <div class="timeline-content">
-              Project funding was fully approved, securing the resources needed to begin construction. All required building permits were officially approved, allowing the project to move forward into the next phase.
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">Конец апреля — начало мая 2026</div>
+              <div class="timeline-content">
+                После заливки фундаменту потребуется примерно 21–28 дней для полного набора прочности. В этот период видимый прогресс временно замедлится, чтобы обеспечить надежность и прочность конструкции.
+              </div>
             </div>
-          </div>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">February 23, 2025</div>
-            <div class="timeline-content">
-              A groundbreaking ceremony and prayer service were held, marking the official beginning of this new journey.
+            <div class="timeline-item current">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">Апрель 2026</div>
+              <div class="timeline-content">
+                Инспекции по сантехнике и электрике успешно пройдены, что стало важной вехой в процессе строительства. Сейчас ведется подготовка к плите и фундаментам, и работы на объекте продолжают двигаться вперед.
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">Февраль 2026</div>
+              <div class="timeline-content">
+                Финансирование проекта было полностью утверждено, что обеспечило необходимые ресурсы для начала строительства. Все необходимые разрешения были официально одобрены, что позволило перейти к следующему этапу проекта.
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">23 февраля 2025</div>
+              <div class="timeline-content">
+                Состоялась церемония закладки и молитва, ознаменовавшие официальное начало этого нового пути.
+              </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('show'));
+      document.getElementById(lang).classList.add('show');
+
+      const enBtn = document.getElementById('btn-en');
+      const ruBtn = document.getElementById('btn-ru');
+      const enBtnRu = document.getElementById('btn-en-ru');
+      const ruBtnRu = document.getElementById('btn-ru-ru');
+
+      if (enBtn) enBtn.classList.remove('active');
+      if (ruBtn) ruBtn.classList.remove('active');
+      if (enBtnRu) enBtnRu.classList.remove('active');
+      if (ruBtnRu) ruBtnRu.classList.remove('active');
+
+      if (lang === 'en' && enBtn) enBtn.classList.add('active');
+      if (lang === 'en' && enBtnRu) enBtnRu.classList.add('active');
+      if (lang === 'ru' && ruBtn) ruBtn.classList.add('active');
+      if (lang === 'ru' && ruBtnRu) ruBtnRu.classList.add('active');
+    }
+  </script>
 </body>
 </html>
